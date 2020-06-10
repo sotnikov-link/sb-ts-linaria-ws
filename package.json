@@ -1,0 +1,11 @@
+{
+  "name": "sb-ts-linaria-ws",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sotnikov-link/sb-ts-linaria-ws.git",
+  "author": "Valeriy Sotnikov <sotnikov.link@mail.ru>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}
