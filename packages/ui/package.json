@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "clean": "rm -rf ./out ./*.tsbuildinfo ./dist ./.linaria-cache",
     "dev": "concurrently -n tsc,webpack \"ttsc --watch --preserveWatchOutput --pretty\" \"webpack --watch --config webpack.config.dev.js\""
   },
   "peerDependencies": {

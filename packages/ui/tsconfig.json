@@ -5,7 +5,13 @@
     "module": "esnext",
     "rootDir": "./src",
     "outDir": "./out",
-    "plugins": [{ "transform": "ts-nameof", "type": "raw" }]
+    "plugins": [{ "transform": "ts-nameof", "type": "raw" }],
+    "incremental": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true
   },
   "files": [
     "src/index.tsx",
@@ -13,5 +19,5 @@
     "src/components/index.tsx"
   ],
   "include": ["src/**/*.spec.tsx"],
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules", "out"]
 }
