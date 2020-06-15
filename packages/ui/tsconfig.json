@@ -4,7 +4,7 @@
     "target": "esnext",
     "module": "esnext",
     "rootDir": "./src",
-    "outDir": "./types",
+    "outDir": "./out",
     "plugins": [{ "transform": "ts-nameof", "type": "raw" }]
   },
   "files": [

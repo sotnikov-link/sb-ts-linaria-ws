@@ -100,6 +100,11 @@ const createConfig = (mode = 'development', withAnalyzer = false) => ({
   },
 });
 
-module.exports = [createConfig(), createConfig('production')];
+const configs = {
+  dev: createConfig(),
+  prod: createConfig('production'),
+};
 
+module.exports = [configs.dev, configs.prod];
 module.exports.createConfig = createConfig;
+module.exports.configs = configs;

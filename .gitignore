@@ -1,3 +1,9 @@
+### Project
+
+.linaria-cache/
+
+### Node
+
 # Logs
 logs
 *.log

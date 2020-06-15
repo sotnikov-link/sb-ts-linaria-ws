@@ -1,3 +1,4 @@
+import { styled } from 'linaria/react';
 import React, { FC } from 'react';
 
 export interface ButtonProps {
@@ -16,7 +17,11 @@ export const Button: FC<ButtonProps> = ({
   children,
   onClick = () => {},
 }: ButtonProps) => (
-  <button onClick={onClick} type="button">
+  <ButtonBase onClick={onClick} type="button">
     {children}
-  </button>
+  </ButtonBase>
 );
+
+const ButtonBase = styled.button`
+  border: 1px solid pink;
+`;
