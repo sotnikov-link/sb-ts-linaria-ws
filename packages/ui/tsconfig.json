@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "rootDir": "./src",
+    "outDir": "./types",
+    "plugins": [{ "transform": "ts-nameof", "type": "raw" }]
+  },
+  "files": [
+    "src/index.tsx",
+    "src/declarations.d.ts",
+    "src/components/index.tsx"
+  ],
+  "include": ["src/**/*.spec.tsx"],
+  "exclude": ["node_modules", "lib"]
+}

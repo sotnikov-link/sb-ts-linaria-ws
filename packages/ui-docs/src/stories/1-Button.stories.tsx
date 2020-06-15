@@ -2,7 +2,6 @@ import { action } from '@storybook/addon-actions';
 import React from 'react';
 import { Button } from './Button';
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'Button',
   component: Button,

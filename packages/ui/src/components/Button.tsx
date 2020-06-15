@@ -1,6 +1,6 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
 
-interface ButtonProps extends PropsWithChildren<{}> {
+export interface ButtonProps {
   children: React.ReactNode;
 
   /**
