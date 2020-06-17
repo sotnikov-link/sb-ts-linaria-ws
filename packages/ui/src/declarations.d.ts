@@ -1,4 +1,9 @@
 declare module '*.svg' {
-  const content: string;
-  export = content;
+  const svgContent: string;
+  export = svgContent;
+}
+
+declare module '*.cur' {
+  const curContent: string;
+  export = curContent;
 }
