@@ -1,6 +1,7 @@
 import { Checkbox } from '@example/ui';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
+import { Playground } from './Playground';
 
 export default {
   title: 'Checkbox External',
@@ -18,3 +19,5 @@ export const Emoji = () => (
     </span>
   </Checkbox>
 );
+
+export { Playground };

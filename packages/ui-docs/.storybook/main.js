@@ -1,4 +1,5 @@
 const path = require('path');
+const addLinaria = require('./addLinaria');
 
 module.exports = {
   stories: ['../src/**/*.stories.(tsx|mdx)'],
@@ -11,10 +12,11 @@ module.exports = {
   ],
 
   webpackFinal: (config) => {
-    /**
-     * Добавляем polyfills в сборку
-     */
+    /* Polyfills */
     config.entry.unshift(path.resolve(__dirname, 'polyfills'));
+
+    /* Linaria */
+    addLinaria(config);
 
     return config;
   },
