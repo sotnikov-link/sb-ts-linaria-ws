@@ -64,7 +64,22 @@ const createConfig = (mode = 'development', withAnalyzer = false) => {
               },
             },
 
-            ...(isDevelopment ? ['react-docgen-typescript-loader'] : []),
+            ...(isDevelopment
+              ? [
+                  {
+                    loader: 'react-docgen-typescript-loader',
+                    options: {
+                      propFilter: (prop) => {
+                        if (prop.parent) {
+                          return !prop.parent.fileName.includes('node_modules');
+                        }
+
+                        return !!prop.description;
+                      },
+                    },
+                  },
+                ]
+              : []),
           ],
         },
         {
