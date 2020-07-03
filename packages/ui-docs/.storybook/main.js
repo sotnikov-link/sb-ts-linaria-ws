@@ -1,5 +1,5 @@
 const path = require('path');
-const addLinaria = require('./addLinaria');
+const addEmotion = require('./addEmotion');
 
 module.exports = {
   stories: ['../src/**/*.stories.(tsx|mdx)'],
@@ -16,8 +16,7 @@ module.exports = {
     /* Polyfills */
     config.entry.unshift(path.resolve(__dirname, 'polyfills'));
 
-    /* Linaria */
-    addLinaria(config);
+    addEmotion(config);
 
     return config;
   },

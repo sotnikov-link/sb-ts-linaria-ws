@@ -20,4 +20,4 @@ export const Emoji = () => (
   </Checkbox>
 );
 
-export { Playground };
+export const Player = () => <Playground />;

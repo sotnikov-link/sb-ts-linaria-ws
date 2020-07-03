@@ -1,13 +1,14 @@
 // @ts-check
 const { Compiler } = require('webpack');
+const merge = require('lodash.merge');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 /**
- * Добавить поддержку Linaria в конфигурацию Webpack
+ * Добавить поддержку emotion в конфигурацию Webpack
  * @param {Compiler['options']} config
  */
-const addLinaria = (config) => {
+const addEmotion = (config) => {
   for (let ruleIndex = 0; ruleIndex < config.module.rules.length; ruleIndex++) {
     const ruleItem = config.module.rules[ruleIndex];
 
@@ -20,33 +21,23 @@ const addLinaria = (config) => {
         : [ruleItem.use]
       ).reduce((acc, useItem) => {
         /**
-         * Условие при котором нужно добавить конфигурацию для Linaria
+         * Условие при котором нужно добавить конфигурацию для emotion
          */
         if (
           typeof useItem === 'object' &&
           typeof useItem.loader === 'string' &&
           useItem.loader.match('babel-loader')
         ) {
-          acc.push({
-            loader: 'linaria/loader',
-            options: {
-              sourceMap: isDevelopment,
-            },
-          });
-
-          const options =
-            typeof useItem.options === 'object' && useItem.options;
-
-          acc.push({
-            ...useItem,
-            options: {
-              ...options,
-              presets: [
-                ...(Array.isArray(options.presets) && options.presets),
-                'linaria/babel',
-              ],
-            },
-          });
+          acc.push(
+            merge(
+              {
+                options: {
+                  plugins: [['emotion', { sourceMap: isDevelopment }]],
+                },
+              },
+              useItem
+            )
+          );
         } else {
           acc.push(useItem);
         }
@@ -57,4 +48,4 @@ const addLinaria = (config) => {
   }
 };
 
-module.exports = addLinaria;
+module.exports = addEmotion;

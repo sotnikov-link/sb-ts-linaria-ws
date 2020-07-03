@@ -1,5 +1,5 @@
+import styled from '@emotion/styled';
 import { Checkbox } from '@example/ui';
-import { styled } from 'linaria/react';
 import * as React from 'react';
 // import { BodyText } from '../../Typography';
 // import { Checkbox } from '../Checkbox';
@@ -221,4 +221,6 @@ const ColumnHeader = styled.p`
 `;
 
 /** @todo заменить на компонент из uikit */
-const BodyText = styled.p``;
+const BodyText = styled.p`
+  margin: 0;
+`;
