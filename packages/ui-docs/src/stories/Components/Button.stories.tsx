@@ -3,7 +3,8 @@ import { action } from '@storybook/addon-actions';
 import React from 'react';
 
 export default {
-  title: 'Button External',
+  /** @todo nameof */
+  title: 'Components/Button',
   component: Button,
 };
 

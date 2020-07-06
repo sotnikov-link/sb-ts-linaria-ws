@@ -1,8 +1,26 @@
 import styled from '@emotion/styled';
 import { Checkbox } from '@example/ui';
-import * as React from 'react';
-// import { BodyText } from '../../Typography';
-// import { Checkbox } from '../Checkbox';
+import { action } from '@storybook/addon-actions';
+import React from 'react';
+import { Live } from '../../utils';
+
+export default {
+  /** @todo nameof */
+  title: 'Components/Checkbox',
+  component: Checkbox,
+};
+
+export const Simple = () => (
+  <Checkbox onClick={action('clicked')}>Hello Checkbox</Checkbox>
+);
+
+export const Emoji = () => (
+  <Checkbox onClick={action('clicked')}>
+    <span role="img" aria-label="so cool">
+      😀 😎 👍 💯
+    </span>
+  </Checkbox>
+);
 
 export const Playground = () => {
   const [state, setState] = React.useState({
@@ -43,72 +61,6 @@ export const Playground = () => {
 
   return (
     <form onChange={handleFormChange} onSubmit={preventDefault}>
-      <h1>Компонент Checkbox</h1>
-
-      <p>
-        Используются для списка параметров, в котором пользователь может выбрать
-        один или несколько параметров, включая все или ни одного.
-      </p>
-
-      <p>
-        Чекбокс допускает три состояния: выбранный , невыбранный и
-        неопределенный. Последнее состояние вступает в действие, когда основной
-        список параметров содержит подсписок параметров, некоторые из которых
-        выбраны, а некоторые - нет.
-      </p>
-
-      <p>
-        Пользователь может выбрать чекбокс, кликнув непосредственно по полю или
-        нажав на его текстовый ярлык.
-      </p>
-
-      <h2>Реализация «неопределенного состояния»</h2>
-
-      <p>
-        Приоритет свойства indeterminate выше, чем у checked. Если indeterminate
-        положительный, то вне зависимости от значения checked будет показано
-        неопределенное состояние.
-      </p>
-
-      <p>
-        Данное свойство не использует одноименное{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://developer.mozilla.org/ru/docs/Web/CSS/:indeterminate"
-        >
-          нативное состояние indeterminate, которое поддерживается современными
-          браузерами и IE11
-        </a>
-        .
-      </p>
-      <p>
-        Проблема нативной реализации:{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://css-tricks.com/indeterminate-checkboxes/"
-        >
-          нельзя определить indeterminate через HTML
-        </a>
-        , из-за чего приходится писать JS обвязку, которая усложняет логику
-        всего компонента.
-      </p>
-      <p>
-        Поэтому свойство indeterminate реализует свою логику через атрибут
-        data-indeterminate,{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/mui-org/material-ui/blob/50c0bbc3a2040c9945f5009a6bd56292d216f236/packages/material-ui/src/Checkbox/Checkbox.js#L87"
-        >
-          как это сделано в Material UI
-        </a>
-        .
-      </p>
-
-      <h2>Playground</h2>
-
       <FieldSet>
         <legend>Props</legend>
         <Flex>
@@ -224,3 +176,7 @@ const ColumnHeader = styled.p`
 const BodyText = styled.p`
   margin: 0;
 `;
+
+export const LiveCode = () => (
+  <Live code={`<Checkbox />`} scope={{ Checkbox }} />
+);

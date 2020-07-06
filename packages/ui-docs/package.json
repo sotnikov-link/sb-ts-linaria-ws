@@ -29,6 +29,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
+    "react-live": "^2.2.2",
     "regenerator-runtime": "^0.13.5",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
