@@ -28,6 +28,7 @@
     "babel-plugin-ts-nameof": "^4.2.1",
     "deepmerge": "^4.2.2",
     "event-source-polyfill": "^1.0.15",
+    "proxy-polyfill": "^0.3.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",

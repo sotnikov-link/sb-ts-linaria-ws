@@ -1,15 +1,24 @@
-import github from 'prism-react-renderer/themes/github';
+import { isIE } from '@example/ui';
 import * as React from 'react';
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
+import { LiveCoreProps } from './LiveCore';
 
-export type LiveProps = React.ComponentPropsWithoutRef<typeof LiveProvider>;
+const LiveCore = React.lazy(() => import('./LiveCore'));
 
-export const Live = React.memo<LiveProps>((props) => (
-  <LiveProvider {...props} theme={github}>
-    <LivePreview />
-    <LiveEditor />
-    <LiveError />
-  </LiveProvider>
-));
+export const Live = React.memo<LiveCoreProps>((props) => {
+  if (isIE) {
+    return (
+      <p>
+        В Internet Explorer не доступен редактор кода, используйте современный
+        браузер, например Chrome
+      </p>
+    );
+  } else {
+    return (
+      <React.Suspense fallback={<p>Loading…</p>}>
+        <LiveCore {...props} />
+      </React.Suspense>
+    );
+  }
+});
 
 Live.displayName = 'Live';
