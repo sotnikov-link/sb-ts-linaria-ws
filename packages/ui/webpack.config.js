@@ -87,7 +87,7 @@ const createConfig = (mode = 'development', withAnalyzer = false) => {
           use: [ECC.loader, 'css-loader'],
         },
         {
-          test: /\.(svg|png|jpg|cur)$/,
+          test: /\.(woff|woff2|svg|png|jpg|cur)$/,
           use: {
             loader: 'file-loader',
             options: {
