@@ -1,11 +1,24 @@
 const path = require('path');
-const addEmotion = require('./addEmotion');
+const tsNameof = require('ts-nameof');
+const extendBabelLoader = require('./extendBabelLoader');
 
 module.exports = {
   stories: ['../src/**/*.stories.(tsx|mdx)'],
 
   addons: [
-    '@storybook/preset-typescript',
+    {
+      name: '@storybook/preset-typescript',
+      options: {
+        tsLoaderOptions: {
+          getCustomTransformers: () => ({
+            before: [
+              /** @see https://git.io/JJL3t */
+              tsNameof,
+            ],
+          }),
+        },
+      },
+    },
     '@storybook/addon-storysource',
     '@storybook/addon-actions',
     '@storybook/addon-links',
@@ -16,7 +29,14 @@ module.exports = {
     /* Polyfills */
     config.entry.unshift(path.resolve(__dirname, 'polyfills'));
 
-    addEmotion(config);
+    extendBabelLoader(config, {
+      options: {
+        plugins: [
+          /** @see https://git.io/JJteO */
+          'babel-plugin-ts-nameof',
+        ],
+      },
+    });
 
     return config;
   },

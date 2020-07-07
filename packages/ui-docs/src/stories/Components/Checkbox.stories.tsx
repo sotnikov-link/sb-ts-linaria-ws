@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { Checkbox } from '@example/ui';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import { Live } from '../../utils';
+import { LiveSet } from '../../utils';
 
 export default {
   /** @todo nameof */
-  title: 'Components/Checkbox',
+  title: `Components/Checkbox`,
   component: Checkbox,
 };
 
@@ -68,11 +68,11 @@ export const Playground = () => {
             <label>
               <input
                 type="checkbox"
-                name={'checked' /** @todo nameof(state.checked) */}
+                name={nameof(state.checked)}
                 checked={state.checked}
                 onChange={handleCheckedChange}
               />{' '}
-              {'checked' /** @todo nameof(state.checked) */}
+              {nameof(state.checked)}
             </label>
           </Box>
 
@@ -80,10 +80,10 @@ export const Playground = () => {
             <label>
               <input
                 type="checkbox"
-                name={'indeterminate' /** @todo nameof(state.indeterminate) */}
+                name={nameof(state.indeterminate)}
                 defaultChecked={state.indeterminate}
               />{' '}
-              {'indeterminate' /** @todo nameof(state.indeterminate) */}
+              {nameof(state.indeterminate)}
             </label>
           </Box>
 
@@ -91,10 +91,10 @@ export const Playground = () => {
             <label>
               <input
                 type="checkbox"
-                name={'disabled' /** @todo nameof(state.disabled) */}
+                name={nameof(state.disabled)}
                 defaultChecked={state.disabled}
               />{' '}
-              {'disabled' /** @todo nameof(state.disabled) */}
+              {nameof(state.disabled)}
             </label>
           </Box>
         </Flex>
@@ -177,6 +177,4 @@ const BodyText = styled.p`
   margin: 0;
 `;
 
-export const LiveCode = () => (
-  <Live code={`<Checkbox />`} scope={{ Checkbox }} />
-);
+export const LiveCode = () => <LiveSet components={{ Checkbox }} />;
